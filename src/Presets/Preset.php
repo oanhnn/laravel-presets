@@ -88,7 +88,7 @@ abstract class Preset
      */
     protected function stubPath(string $path = ''): string
     {
-        $preset = str_singular(preg_replace('/.*\\/', '', static::class));
+        $preset = str_slug(preg_replace("/(.*)\\\\/", '', static::class));
         $path = ltrim($path, '\\/');
 
         return rtrim(__DIR__ . "/../../resources/stubs/{$preset}/{$path}", '\\/');

@@ -2,9 +2,10 @@
 
 namespace Laravel\Presets;
 
-use InvalidArgumentException;
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Traits\Macroable;
+use InvalidArgumentException;
 
 class PresetCommand extends Command
 {
@@ -25,9 +26,9 @@ class PresetCommand extends Command
     protected $description = 'Swap the front-end scaffolding for the application';
 
     /**
-     * @var Presets\Preset
+     * @var Filesystem
      */
-    protected $preset;
+    protected $filesystem;
 
     /**
      * Execute the console command.
@@ -44,6 +45,8 @@ class PresetCommand extends Command
             throw new InvalidArgumentException('Invalid preset.');
         }
 
+        $this->filesystem = $this->laravel->make('files');
+
         return $this->{$this->argument('type')}();
     }
 
@@ -54,7 +57,7 @@ class PresetCommand extends Command
      */
     protected function none()
     {
-        (new Presets\None)->install();
+        (new Presets\None($this->filesystem))->install();
         $this->info('Frontend scaffolding removed successfully.');
     }
     /**
@@ -64,7 +67,7 @@ class PresetCommand extends Command
      */
     protected function bootstrap()
     {
-        (new Presets\Bootstrap)->install();
+        (new Presets\Bootstrap($this->filesystem))->install();
         $this->info('Bootstrap scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
@@ -75,7 +78,7 @@ class PresetCommand extends Command
      */
     public function vue()
     {
-        (new Presets\Vue)->install();
+        (new Presets\Vue($this->filesystem))->install();
         $this->info('Vue scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
@@ -86,7 +89,7 @@ class PresetCommand extends Command
      */
     public function react()
     {
-        (new Presets\React)->install();
+        (new Presets\React($this->filesystem))->install();
         $this->info('React scaffolding installed successfully.');
         $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
     }
