@@ -1,0 +1,33 @@
+{
+    "name": "oanhnn/laravel-presets",
+    "type": "library",
+    "description": "Laravel Preset Command polyfill for Laravel 5.4",
+    "keyworks": ["laravel","package","frontend","vue","react"],
+    "license": "MIT",
+    "homepage": "https://github.com/oanhnn/laravel-presets",
+    "support": {
+        "issues": "https://github.com/oanhnn/laravel-presets/issues",
+        "source": "https://github.com/oanhnn/laravel-presets"
+    },
+    "authors": [
+        {
+            "name": "Oanh Nguyen",
+            "email": "oanhnn.bk@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravel\\Presets\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "squizlabs/php_codesniffer": "^2.5"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
