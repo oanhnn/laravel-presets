@@ -6,6 +6,9 @@ use Illuminate\Support\ServiceProvider;
 
 class PresetServiceProvider extends ServiceProvider
 {
+    /**
+     * Register services
+     */
     public function register()
     {
         $this->app->singleton('command.preset', function ($app) {
@@ -13,5 +16,13 @@ class PresetServiceProvider extends ServiceProvider
         });
 
         $this->commands(['command.preset']);
+    }
+
+    /**
+     * @return array
+     */
+    public function provides()
+    {
+        return ['command.preset'];
     }
 }

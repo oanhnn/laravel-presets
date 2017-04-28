@@ -7,7 +7,7 @@ Laravel Preset Command polyfill for Laravel 5.4
 
 ## Main features
 
-Make [Laravel Frontend Presets](https://medium.com/@taylorotwell/laravel-frontend-presets-eca312958def) feature for Laravel 5.4
+Make [Laravel Frontend Presets](https://laravel-news.com/frontend-presets) feature for Laravel 5.4
 
 ## Requirements
 
@@ -36,7 +36,9 @@ After installing the Laravel Frontend Presets library, register the `Laravel\Pre
 
 ## Usage
 
-// TODO: How to use
+Please read:
+- [Laravel 5.5 Adds Frontend Presets](https://laravel-news.com/frontend-presets)
+- [Laravel Frontend Presets](https://medium.com/@taylorotwell/laravel-frontend-presets-eca312958def)
 
 ## Changelog
 
